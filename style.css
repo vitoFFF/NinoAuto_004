@@ -1,0 +1,102 @@
+/* styles.css */
+
+#map { 
+  /* Specify a height for the map container */
+  height: 750px;
+  width:100%;
+}
+
+/* Style for navbar */
+.navbar {
+  position: fixed; /* Position the navbar relative to the viewport */
+  top: 0; /* Align the navbar to the top */
+  left: 0; /* Align the navbar to the left */
+  right: 0; /* Align the navbar to the right */
+  background-color: #2d3dca; /* Light purple color (you can choose any color you like) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1000; /* Ensure the navbar appears above other content */
+  width: 100%; /* Make the navbar span the entire width of the viewport */
+}
+
+
+
+
+.title {
+  margin-top: 60px; /* Add 50px of top margin */
+}
+
+
+
+/* Style for navbar links */
+.navbar a {
+  float: right;
+  display: block;
+  color: #f7f7f7; /* White */
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ff3d3d; /* Lighter purple */
+  color: #807b7b; /* White */
+}
+
+
+/* Active/current link */
+
+/* Style for the title */
+.title h1 {
+  text-align: center;
+  margin: 0 auto;
+  padding: 14px 0;
+  color: #333333; /* Dark gray */
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #3a4eff; /* Dark purple */
+  color: #ffffff; /* White */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn:hover {
+  background-color: #ff3d3d; /* Lighter purple */
+}
+.btnstart {
+  background-color: #3a4eff; /* Dark purple */
+  color: #f7f7f7; /* Black text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  font-weight: bold; /* Set text to bold */
+}
+
+.btnstart:hover {
+  background-color: #ff3d3d; /* Lighter purple */
+}
+
+
+
+
+h1 {
+  color: rgb(0, 0, 255); /* Change color to blue (you can specify any color you want) */
+  font-size: 36px; /* Increase font size to 36 pixels */
+  font-style: italic; /* Apply italic style */
+  font-weight: bold; /* Apply bold font weight */
+}
+
+
+body {
+  background-color: #e4e1fd; /* Light gray */
+}

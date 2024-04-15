@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nino</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+   <!-- Link to external CSS file -->
+   <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <div class="navbar">
+        <!-- <img src="icons/bg.png" alt="Logo" style="height: 40px; margin-left: 30px;">
+         -->
+        <a href="/login">Login</a>
+        
+        <a href="/about.html">About</a>
+        <a class="active" href="/">Home</a>
+    </div>
+    
+
+    </div>
+    <div class="title">
+        <h1 style="color: #033a8d; font-style: italic; font-size: 36px">ნინოს ავტოსკოლა !</h1>
+
+    </div>
+    
+<!-- Buttons -->
+<!-- <button class="btn" onclick="startExam()">გამოცდის დაწყება</button> -->
+<button class="btnstart" onclick="startAnimation()">გამოცდის დაწყება</button>
+<button class="btn" onclick="changeRoute('N1')">მარშუტი N1</button>
+
+
+
+<button class="btn" onclick="toggleMapStyle()">Change Map Style</button>
+
+
+<!-- <button class="btn" onclick="startAnimation()">Start Animation</button> -->
+<button class="btn" onclick="resetAnimation()">Reset</button>
+
+<audio id="audioPlayer" src="audio/100l.mp3" onended="stopAudio()"></audio>
+
+<audio id="startAudio" src="audio/start.mp3"></audio>
+
+
+<div id="map"></div>
+<!-- External JavaScript File -->
+<script src="script.js" defer></script>
+</body>
+</html>
