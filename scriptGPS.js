@@ -28,17 +28,6 @@ var polylineCoords = [
 
 
 
-
-// Define a flag to track if coordinates have been reversed for N2 route
-
-
-
-
-
-
-
-
-
 // Initialize variables to hold sum of latitudes and longitudes
 var sumLat = 0;
 var sumLng = 0;
@@ -52,10 +41,6 @@ for (var i = 0; i < polylineCoords.length; i++) {
 // Calculate average latitude and longitude
 var avgLat = sumLat / polylineCoords.length;
 var avgLng = sumLng / polylineCoords.length;
-
-//console.log("Average Latitude:", avgLat);
-//console.log("Average Longitude:", avgLng);
-
 
 
 var map = L.map('map').setView([avgLat, avgLng], 16.0);
@@ -103,21 +88,6 @@ var rightIcon = L.icon({
   iconAnchor: [12, 12],
   popupAnchor: [0, -10],
 });
-
-// var crossroad2 = L.marker(polylineCoords[3], { icon: leftIcon }).addTo(map).bindPopup('Crossroad 2');
-// var crossroad3 = L.marker(polylineCoords[4], { icon: rightIcon }).addTo(map).bindPopup('Crossroad 3');
-
-
-// Loop through each coordinate and add a circle marker
-// for (var i = 0; i < polylineCoords.length; i+=3) {
-//   var coordinate = polylineCoords[i];
-//   var circle = L.circle(coordinate, {
-//       color: 'green',
-//       fillColor: 'green',
-//       fillOpacity: 0.5,
-//       radius: 33 // Adjust the radius as needed
-//   }).addTo(map);
-// }
 
 var p1 = L.circleMarker(polylineCoords[3], { color: 'cyan', fillColor: 'blue', fillOpacity: 1, radius: 20 }).addTo(map).bindPopup('Start Point');
 var p2 = L.circleMarker(polylineCoords[7], { color: 'cyan', fillColor: 'blue', fillOpacity: 1, radius: 20 }).addTo(map).bindPopup('Start Point');
@@ -205,18 +175,7 @@ map.on('zoomend', function() {
 });
 
 
-var bigCircle = L.circle(polylineCoords[0], {
-  color: 'blue',
-  fillColor: 'cyan',
-  fillOpacity: 0.9,
-  radius: 18 // Adjust the radius as needed to make it bigger
-}).addTo(map).bindPopup('Big Circle at Start Point');
 
-//console.log(polylineCoords[0]);
-function resetAnimation() {
-  clearInterval(animationInterval); // Stop the animation
-  bigCircle.setLatLng(polylineCoords[0]); // Reset the position of the bigCircle to the start point
-}
 
 
 var audioPlayed = false; // Flag to track if the audio has been played
@@ -246,17 +205,7 @@ function startAnimation() {
       startPoint[1] + (endPoint[1] - startPoint[1]) * (currentStep / totalSteps)
     ];
 
-    bigCircle.setLatLng(interpolatedPoint); // Set the position of the bigCircle to the interpolated point
-
-    // Check if the bigCircle is near crossroad2
-    var distanceToCrossroad2 = bigCircle.getLatLng().distanceTo(p1.getLatLng());
-    var alertThreshold = 140; // Define the threshold distance for triggering the alert
-
-    if (!audioPlayed && distanceToCrossroad2 < alertThreshold) {
-      var audioPlayer = document.getElementById("audioPlayer");
-      audioPlayer.play(); // Play the audio only if it hasn't been played already
-      audioPlayed = true; // Set the flag to true to indicate that the audio has been played
-    }
+   
 
     currentStep++;
     if (currentStep > totalSteps) {
@@ -271,12 +220,41 @@ function stopAudio() {
   audioPlayer.pause(); // Pause the audio when it finishes playing
 }
 
-function resetAnimation() {
-  clearInterval(animationInterval); // Stop the animation
-  var audioPlayer = document.getElementById("audioPlayer");
-  audioPlayer.pause(); // Pause the audio
-  audioPlayed = false; // Reset the flag to indicate that the audio hasn't been played
-  //console.log(polylineCoords[1]);
-  // Reset the position of the bigCircle to thes start point
-  bigCircle.setLatLng(polylineCoords[0]);
+
+
+
+// Request permission to access the user's location
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var userLat = position.coords.latitude;
+    var userLng = position.coords.longitude;
+    console.log(userLat);
+    // Add marker for the user's location with cyan circle
+    var userMarker = L.circleMarker([userLat, userLng], { color: 'red', fillColor: 'cyan', fillOpacity: 1, radius: 16 }).addTo(map).bindPopup('Your Location');
+  });
+} else {
+  console.log("Geolocation is not supported by this browser.");
 }
+
+
+
+// // Function to count visible GPS points
+// function countVisibleGPS() {
+//   var visibleCount = 0;
+  
+//   // Loop through each GPS point
+//   for (var i = 0; i < polylineCoords.length; i++) {
+//     var latlng = L.latLng(polylineCoords[i]);
+    
+//     // Check if the point is within the current map bounds
+//     if (map.getBounds().contains(latlng)) {
+//       visibleCount++;
+//     }
+//   }
+  
+//   // Print the number of visible GPS points
+//   console.log("Number of visible GPS points: " + visibleCount);
+// }
+
+// // Call the function whenever needed
+// countVisibleGPS();

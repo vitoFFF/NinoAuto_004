@@ -41,7 +41,7 @@
 /* Change color on hover */
 .navbar a:hover {
   background-color: #ff3d3d; /* Lighter purple */
-  color: #807b7b; /* White */
+  color: #fffbfb; /* White */
 }
 
 
@@ -69,6 +69,7 @@
 
 .btn:hover {
   background-color: #ff3d3d; /* Lighter purple */
+  
 }
 .btnstart {
   background-color: #3a4eff; /* Dark purple */
@@ -99,4 +100,72 @@ h1 {
 
 body {
   background-color: #e4e1fd; /* Light gray */
+}
+
+
+/* styles.css */
+
+.image-container {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  max-width: 100%; /* Limit the maximum width to the container's width */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.image-container img {
+  max-width: 100%; /* Make sure the image doesn't exceed the container's width */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+/* styles.css */
+
+
+
+
+/* Change style of "Computer Vision" */
+.future-plans .computer-vision h2 {
+  color: #3a3a3a; /* Change color to blue */
+}
+
+
+.future-plans p,
+.future-plans ul,
+.future-plans li {
+  font-size: 18px; /* Increase the font size for the paragraphs and list items */
+}
+
+
+/* styles.css */
+
+.computer-vision {
+  text-align: center; /* Center-align the text */
+  margin-top: 20px; /* Add some top margin for spacing */
+}
+
+.computer-vision h2 {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #333; /* Set the text color */
+}
+
+
+.list-item {
+  width: 80%; /* Set the width to 80% */
+  font-size: 24px; /* Increase the font size */
+  background: linear-gradient(120deg, #4e8cff, #4ec2ff); /* Beautiful blue gradient background */
+  color: #ffffff; /* Text color */
+  padding: 20px; /* Padding for better spacing */
+  margin: 20px auto; /* Center the list items horizontally */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.list-item strong {
+  font-weight: bold; /* Make the text bold */
+}
+
+
+
+.common-width {
+  width: 170px; /* Adjust the width as needed */
 }
